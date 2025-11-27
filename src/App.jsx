@@ -1,8 +1,8 @@
 // src/App.jsx
 import React, { useState } from 'react';
-import navbar from './Components/Navbar';
-import Hero from './Components/Hero';
-import Footer from './Components/Footer';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Footer from './components/Footer';
 import Courses from './pages/Courses';
 import StudyMaterials from './pages/StudyMaterials';
 import TestSeries from './pages/TestSeries';
@@ -135,7 +135,7 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${getBgClasses()}`}>
-      <navbar 
+      <Navbar 
         themeColor={themeColor}
         logoUrl={logoUrl}
         bgColor={bgColor}
