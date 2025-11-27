@@ -1,8 +1,8 @@
 // src/App.jsx
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Footer from './components/Footer';
+import Navbar from './Components/Navbar';
+import Hero from './Components/Hero';
+import Footer from './Components/Footer';
 import Courses from './pages/Courses';
 import StudyMaterials from './pages/StudyMaterials';
 import TestSeries from './pages/TestSeries';
