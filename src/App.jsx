@@ -11,7 +11,7 @@ import Results from './pages/Results';
 function App() {
   const [themeColor, setThemeColor] = useState('#3B82F6');
   const [logoUrl, setLogoUrl] = useState('');
-  const [collegeName, setCollegeName] = useState('Ajnha College');
+  const [collegeName, setCollegeName] = useState('Yours College');
   const [bgColor, setBgColor] = useState('light');
   const [heroImage, setHeroImage] = useState('');
   const [circularImages, setCircularImages] = useState([]);

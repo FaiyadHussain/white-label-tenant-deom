@@ -160,7 +160,7 @@ const DemoPanel = ({
                     value={tempCollegeName}
                     onChange={(e) => setTempCollegeName(e.target.value)}
                     placeholder="Enter your college name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+                    className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
                   />
                   <p className="text-xs text-gray-500">
                     This name will appear in the navigation bar and hero section
