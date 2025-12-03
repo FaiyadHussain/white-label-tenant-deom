@@ -105,21 +105,9 @@ const LandingPage = ({
         getMutedTextColorClasses={enhancedGetMutedTextColorClasses}
       />
 
-      <AIPoweredSection
-        themeColor={themeColor}
-        bgColor={bgColor}
-        getCardBgClasses={enhancedGetCardBgClasses}
-        getTextColorClasses={enhancedGetTextColorClasses}
-        getMutedTextColorClasses={enhancedGetMutedTextColorClasses}
-      />
+     
 
-      <MockTestFocusSection
-        themeColor={themeColor}
-        bgColor={bgColor}
-        getCardBgClasses={enhancedGetCardBgClasses}
-        getTextColorClasses={enhancedGetTextColorClasses}
-        getMutedTextColorClasses={enhancedGetMutedTextColorClasses}
-      />
+     
 
       <ExamComparison
         themeColor={themeColor}
@@ -189,7 +177,7 @@ const Hero = ({
             <span className={`text-sm font-semibold ${trustBadgeText}`}>TRUSTED PLATFORM</span>
           </div>
           <div className={`w-1 h-1 rounded-full ${bgColor === 'dark' ? 'bg-gray-600' : 'bg-gray-400'}`}></div>
-          <span className={`text-sm ${getMutedTextColorClasses()}`}>10,000+ Active Students</span>
+          <span className={`text-sm ${getMutedTextColorClasses()}`}></span>
         </div>
 
         {/* Main Heading */}
@@ -302,24 +290,6 @@ const Hero = ({
           )}
         </div>
 
-        {/* Live Status Below Image - Only show if hero image is uploaded */}
-        {heroImage && (
-          <div className={`rounded-xl p-4 border ${getBorderColorClasses()} shadow-lg mb-6 w-full max-w-lg mx-auto ${bgColor === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <div>
-                  <p className={`text-sm font-semibold ${getTextColorClasses()}`}>Live NEET/JEE Mock Test</p>
-                  <p className={`text-xs ${getMutedTextColorClasses()}`}>2,847 students participating</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-green-600 font-bold text-sm">87% Avg. Score</p>
-                <p className={`text-xs ${getMutedTextColorClasses()}`}>This session</p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Leadership Team Section */}
         {hasCircularContent && (
@@ -603,243 +573,9 @@ const ExamFeatures = ({
 
 // ================ AI POWERED SECTION =================
 
-const AIPoweredSection = ({
-  themeColor,
-  bgColor,
-  getCardBgClasses,
-  getTextColorClasses,
-  getMutedTextColorClasses,
-}) => {
-  const sectionBg = bgColor === 'dark' ? 'bg-gray-800' : bgColor === 'gray' ? 'bg-gray-200' : 'bg-gray-50';
-  const badgeBg = bgColor === 'dark' ? 'bg-gray-700' : 'bg-blue-50';
-  const badgeBorder = bgColor === 'dark' ? 'border-gray-600' : 'border-blue-200';
-  const badgeText = bgColor === 'dark' ? 'text-blue-400' : 'text-blue-600';
 
-  return (
-    <section className={`py-20 ${sectionBg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div>
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${badgeBg} border ${badgeBorder} mb-6`}>
-              <Sparkles className="w-4 h-4" style={{ color: themeColor }} />
-              <span className={`text-sm font-semibold ${badgeText}`}>
-                AI-POWERED PLATFORM
-              </span>
-            </div>
-
-            <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${getTextColorClasses()}`}>
-              Smart Learning
-              <span className="block mt-2" style={{ color: themeColor }}>
-                Meets Exam Excellence
-              </span>
-            </h2>
-
-            <p className={`text-lg mb-8 leading-relaxed ${getMutedTextColorClasses()}`}>
-              Our AI algorithms analyze every aspect of your preparation to provide personalized
-              recommendations, adaptive difficulty levels, and precise performance tracking for
-              optimal results.
-            </p>
-
-            <div className="space-y-4">
-              {[
-                'Real-time performance analytics and insights after every mock test.',
-                'Adaptive test difficulty based on your current level and target score.',
-                'Personalized weak area identification for each subject and chapter.',
-                'Smart revision scheduling, reminders, and re-tests of previously weak topics.',
-                'Comparative analysis with topper strategies and average student behavior.',
-                'Separate AI models tuned for JEE Main, JEE Advanced, and NEET patterns.',
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                  <span className={`text-sm ${getTextColorClasses()}`}>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Content - Feature Cards */}
-          <div className="grid gap-6">
-            {[
-              {
-                Icon: Brain,
-                title: 'Intelligent Analytics',
-                description:
-                  'Deep learning algorithms track 50+ parameters to provide comprehensive performance insights.',
-              },
-              {
-                Icon: Target,
-                title: 'Precision Targeting',
-                description:
-                  'Focus on exactly what matters with AI-driven topic priority and difficulty adjustment.',
-              },
-              {
-                Icon: TrendingUp,
-                title: 'Progress Optimization',
-                description:
-                  'Continuous improvement tracking with predictive analysis for better score forecasting.',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`p-6 rounded-2xl ${getCardBgClasses()} border-l-4`}
-                style={{ borderLeftColor: themeColor }}
-              >
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${themeColor}15` }}
-                  >
-                    <item.Icon className="w-5 h-5" style={{ color: themeColor }} />
-                  </div>
-                  <div>
-                    <h3 className={`text-lg font-bold mb-2 ${getTextColorClasses()}`}>
-                      {item.title}
-                    </h3>
-                    <p className={`text-sm ${getMutedTextColorClasses()}`}>
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ================ MOCK TEST FOCUS =================
-
-const MockTestFocusSection = ({
-  themeColor,
-  bgColor,
-  getCardBgClasses,
-  getTextColorClasses,
-  getMutedTextColorClasses,
-}) => {
-  const pillars = [
-    {
-      tag: 'JEE Main',
-      label: 'Speed + Accuracy Engine',
-      bullets: [
-        'Topic-wise and full-length JEE Main mock tests with real exam interface.',
-        'Auto-calibrated difficulty to improve speed without dropping accuracy.',
-        'Instant scorecards with section-wise analysis for Physics, Chemistry, and Maths.',
-      ],
-    },
-    {
-      tag: 'JEE Advanced',
-      label: 'Concept Depth Drills',
-      bullets: [
-        'Advanced pattern questions: single correct, multiple correct, integer type, comprehension.',
-        'Logic-heavy problems that train you to think like an IIT paper setter.',
-        'Detailed step-by-step solutions to strengthen theory and application.',
-      ],
-    },
-    {
-      tag: 'NEET UG',
-      label: 'High-Yield NEET Mocks',
-      bullets: [
-        'NEET-specific full mocks with correct PCB weightage and negative marking.',
-        'Question mix tuned to previous-year trend and NCERT focus areas.',
-        'Session-wise reports to track improvement in Biology-heavy scoring.',
-      ],
-    },
-  ];
-
-  const extras = [
-    'Create your own custom mock test from chapters and difficulty you choose.',
-    'Attempt bilingual tests (English/Hinglish) for JEE and NEET where enabled.',
-    'Save "starred" questions to revisit just before the actual exam day.',
-    'Parent view to see how many mocks are completed and how scores are moving.',
-    'Switch easily between practice mode and strict exam mode with negative marking.',
-    'View history of all attempts to see how your rank estimate changes over time.',
-  ];
-
-  const sectionBg = bgColor === 'dark' ? 'bg-gray-800' : bgColor === 'gray' ? 'bg-gray-200' : 'bg-gray-50';
-  const extraCardBg = bgColor === 'dark' ? 'bg-gray-700' : 'bg-white';
-  const extraCardBorder = bgColor === 'dark' ? 'border-gray-600' : 'border-gray-200';
-
-  return (
-    <section className={`py-20 ${sectionBg}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${getTextColorClasses()}`}>
-            Built Around
-            <span className="block mt-2" style={{ color: themeColor }}>
-              Serious Mock Test Practice
-            </span>
-          </h2>
-          <p className={`text-lg max-w-3xl mx-auto ${getMutedTextColorClasses()}`}>
-            Every feature in the platform is designed to make your JEE Main, JEE Advanced, and NEET
-            mock tests feel like the real exam – and to turn every attempt into clear improvement.
-          </p>
-        </div>
-
-        {/* 3 mock pillars */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {pillars.map((item) => (
-            <div
-              key={item.tag}
-              className={`p-6 rounded-2xl ${getCardBgClasses()} hover:-translate-y-1 hover:shadow-lg transition-all duration-300`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <span
-                  className="text-xs font-semibold px-2 py-1 rounded-full"
-                  style={{ backgroundColor: `${themeColor}10`, color: themeColor }}
-                >
-                  {item.tag}
-                </span>
-                <Clock className="w-4 h-4 text-gray-400" />
-              </div>
-              <h3 className={`text-lg font-bold mb-3 ${getTextColorClasses()}`}>
-                {item.label}
-              </h3>
-              <ul className="space-y-2">
-                {item.bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span className={`text-sm ${getMutedTextColorClasses()}`}>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Extra features for mocks */}
-        <div className={`p-6 md:p-8 rounded-2xl ${extraCardBg} border ${extraCardBorder}`}>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <Star className="w-6 h-6" style={{ color: themeColor }} />
-              <h3 className={`text-xl font-bold ${getTextColorClasses()}`}>
-                More Than Just Question Solving
-              </h3>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <TrendingUp className="w-4 h-4 text-emerald-600" />
-              <span className={getMutedTextColorClasses()}>
-                Designed to build exam temperament, not just marks.
-              </span>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {extras.map((line, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <ArrowRight className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
-                <span className={`text-sm ${getMutedTextColorClasses()}`}>{line}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 // ================ EXAM COMPARISON =================
 

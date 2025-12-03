@@ -6,10 +6,12 @@ import DemoPanel from './DemoPanel';
 const Navbar = ({
   themeColor,
   logoUrl,
+  collegeName,
   bgColor,
   heroImage,
   onThemeChange,
   onLogoChange,
+  onCollegeNameChange,
   onBgColorChange,
   onHeroImageChange,
   onCircularImagesChange,
@@ -24,7 +26,7 @@ const Navbar = ({
 
   const handleOpenDemoPanel = () => {
     setShowDemoPanel(true);
-    setIsMobileMenuOpen(false); // Close mobile menu when opening demo panel
+    setIsMobileMenuOpen(false);
   };
 
   const handleCloseDemoPanel = () => {
@@ -37,7 +39,7 @@ const Navbar = ({
 
   const handlePageChange = (pageId) => {
     onPageChange(pageId);
-    setIsMobileMenuOpen(false); // Close mobile menu after selection
+    setIsMobileMenuOpen(false);
   };
 
   const navigationItems = [
@@ -58,15 +60,16 @@ const Navbar = ({
               {logoUrl && (
                 <img 
                   src={logoUrl} 
-                  alt="Logo" 
+                  alt="College Logo" 
                   className="h-8 w-auto sm:h-10" 
                 />
               )}
               <h1 
-                className="text-lg sm:text-xl font-bold"
+                className="text-lg sm:text-xl font-bold truncate max-w-[200px] sm:max-w-none"
                 style={{ color: themeColor }}
+                title={collegeName}
               >
-                {logoUrl ? 'Your College' : 'JEE & NEET Prep'}
+                {collegeName || 'College Name'}
               </h1>
             </div>
 
@@ -144,10 +147,12 @@ const Navbar = ({
         <DemoPanel
           themeColor={themeColor}
           logoUrl={logoUrl}
+          collegeName={collegeName}
           bgColor={bgColor}
           heroImage={heroImage}
           onThemeChange={onThemeChange}
           onLogoChange={onLogoChange}
+          onCollegeNameChange={onCollegeNameChange}
           onBgColorChange={onBgColorChange}
           onHeroImageChange={onHeroImageChange}
           onCircularImagesChange={onCircularImagesChange}

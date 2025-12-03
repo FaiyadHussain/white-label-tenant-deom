@@ -11,6 +11,7 @@ import Results from './pages/Results';
 function App() {
   const [themeColor, setThemeColor] = useState('#3B82F6');
   const [logoUrl, setLogoUrl] = useState('');
+  const [collegeName, setCollegeName] = useState('Ajnha College');
   const [bgColor, setBgColor] = useState('light');
   const [heroImage, setHeroImage] = useState('');
   const [circularImages, setCircularImages] = useState([]);
@@ -24,6 +25,10 @@ function App() {
     setLogoUrl(url);
   };
 
+  const handleCollegeNameChange = (name) => {
+    setCollegeName(name);
+  };
+
   const handleBgColorChange = (colorMode) => {
     setBgColor(colorMode);
   };
@@ -33,7 +38,6 @@ function App() {
     setHeroImage(imageUrl);
   };
 
-  // Add handler for circular images
   const handleCircularImagesChange = (images) => {
     console.log('Setting circular images in App:', images);
     setCircularImages(images);
@@ -43,7 +47,6 @@ function App() {
     setCurrentPage(page);
   };
 
-  // Get background classes based on selected mode
   const getBgClasses = () => {
     switch (bgColor) {
       case 'dark':
@@ -108,6 +111,7 @@ function App() {
     const pageProps = {
       themeColor,
       logoUrl,
+      collegeName,
       bgColor,
       heroImage,
       circularImages,
@@ -138,13 +142,15 @@ function App() {
       <Navbar 
         themeColor={themeColor}
         logoUrl={logoUrl}
+        collegeName={collegeName}
         bgColor={bgColor}
         heroImage={heroImage}
         onThemeChange={handleThemeChange}
         onLogoChange={handleLogoChange}
+        onCollegeNameChange={handleCollegeNameChange}
         onBgColorChange={handleBgColorChange}
         onHeroImageChange={handleHeroImageChange}
-        onCircularImagesChange={handleCircularImagesChange} // Add this line
+        onCircularImagesChange={handleCircularImagesChange}
         currentPage={currentPage}
         onPageChange={handlePageChange}
         getCardBgClasses={getCardBgClasses}
@@ -155,22 +161,13 @@ function App() {
       <Footer 
         themeColor={themeColor} 
         logoUrl={logoUrl}
+        collegeName={collegeName}
         bgColor={bgColor}
         heroImage={heroImage}
         getCardBgClasses={getCardBgClasses}
         getTextColorClasses={getTextColorClasses}
         getMutedTextColorClasses={getMutedTextColorClasses}
       />
-
-      {/* Debug info - remove in production */}
-      {/* <div className="fixed bottom-4 left-4 bg-black text-white p-3 rounded-lg text-xs z-50">
-        <div><strong>Debug Info:</strong></div>
-        <div>Hero Image: {heroImage ? '✓ Set' : '✗ Not set'}</div>
-        <div>Logo: {logoUrl ? '✓ Set' : '✗ Not set'}</div>
-        <div>Circular Images: {circularImages.filter(img => img.image).length}</div>
-        <div>Theme: {themeColor}</div>
-        <div>BG Mode: {bgColor}</div>
-      </div> */}
     </div>
   );
 }

@@ -14,7 +14,7 @@ const Courses = ({
       {
         title: "JEE Main Crash Course",
         duration: "6 Months",
-        price: "₹25,000",
+      
         features: ["Daily Live Classes", "100+ Mock Tests", "Doubt Sessions", "Study Material"],
         bestFor: "Class 12 Students",
         popularity: "🔥 Best Seller"
@@ -22,7 +22,7 @@ const Courses = ({
       {
         title: "JEE Advanced Program",
         duration: "12 Months",
-        price: "₹45,000",
+      
         features: ["Advanced Problem Solving", "IIT Level Tests", "Personal Mentorship", "Revision Bootcamps"],
         bestFor: "Serious Aspirants",
         popularity: "⭐ Most Popular"
@@ -30,7 +30,7 @@ const Courses = ({
       {
         title: "JEE Foundation (9-10)",
         duration: "24 Months",
-        price: "₹60,000",
+ 
         features: ["Concept Building", "Olympiad Preparation", "Regular Assessments", "Parent-Teacher Meetings"],
         bestFor: "Class 9-10 Students",
         popularity: "📚 Foundation"
@@ -40,7 +40,7 @@ const Courses = ({
       {
         title: "NEET UG Crash Course",
         duration: "6 Months",
-        price: "₹28,000",
+    
         features: ["Biology Focus", "NCERT Revision", "Medical Entrance Tests", "Practical Knowledge"],
         bestFor: "Class 12 Students",
         popularity: "🔥 Best Seller"
@@ -48,7 +48,7 @@ const Courses = ({
       {
         title: "NEET Foundation",
         duration: "24 Months",
-        price: "₹65,000",
+
         features: ["Biology Excellence", "Chemistry Lab Sessions", "Physics Demonstrations", "Career Guidance"],
         bestFor: "Class 9-10 Students",
         popularity: "📚 Foundation"
@@ -56,7 +56,7 @@ const Courses = ({
       {
         title: "NEET Repeater Course",
         duration: "1 Year",
-        price: "₹35,000",
+   
         features: ["Intensive Revision", "Previous Year Analysis", "Time Management", "Stress Management"],
         bestFor: "Dropper Students",
         popularity: "🔄 Repeater"

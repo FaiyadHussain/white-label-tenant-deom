@@ -4,23 +4,25 @@ import React, { useState, useRef } from 'react';
 const DemoPanel = ({ 
   themeColor = '#3B82F6', 
   logoUrl = null, 
+  collegeName = "Your College",
   bgColor = 'light', 
   heroImage = null,
   onThemeChange = () => console.log('onThemeChange not provided'),
   onLogoChange = () => console.log('onLogoChange not provided'),
+  onCollegeNameChange = () => console.log('onCollegeNameChange not provided'),
   onBgColorChange = () => console.log('onBgColorChange not provided'),
   onHeroImageChange = () => console.log('onHeroImageChange not provided'),
   onCircularImagesChange = () => console.log('onCircularImagesChange not provided'),
   onClose = () => console.log('onClose not provided')
 }) => {
   const [tempColor, setTempColor] = useState(themeColor);
+  const [tempCollegeName, setTempCollegeName] = useState(collegeName);
   const [logoPreview, setLogoPreview] = useState(logoUrl);
   const [heroImagePreview, setHeroImagePreview] = useState(heroImage);
   const [tempBgColor, setTempBgColor] = useState(bgColor);
   const [circularImages, setCircularImages] = useState([
     { id: 1, name: "", role: "Director", department: "", image: null },
     { id: 2, name: "", role: "Principal", department: "", image: null },
-   
   ]);
   
   const fileInputRef = useRef(null);
@@ -63,6 +65,12 @@ const DemoPanel = ({
   const handleApplyDemo = () => {
     console.log('Applying demo changes...');
     
+    // Apply college name if changed
+    if (tempCollegeName !== collegeName && tempCollegeName.trim() !== '') {
+      console.log('Applying new college name:', tempCollegeName);
+      onCollegeNameChange(tempCollegeName);
+    }
+
     // Apply logo if changed
     if (logoPreview !== logoUrl) {
       console.log('Applying new logo');
@@ -141,8 +149,25 @@ const DemoPanel = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column - Images */}
+            {/* Left Column - Images and College Name */}
             <div className="lg:col-span-2 space-y-6">
+              {/* College Name Input */}
+              <div className="space-y-4">
+                <label className="block text-sm font-semibold text-gray-700">College Name</label>
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    value={tempCollegeName}
+                    onChange={(e) => setTempCollegeName(e.target.value)}
+                    placeholder="Enter your college name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+                  />
+                  <p className="text-xs text-gray-500">
+                    This name will appear in the navigation bar and hero section
+                  </p>
+                </div>
+              </div>
+
               {/* Logo Upload */}
               <div className="space-y-4">
                 <label className="block text-sm font-semibold text-gray-700">College Logo</label>
@@ -396,35 +421,50 @@ const DemoPanel = ({
                 <label className="block text-sm font-semibold text-gray-700">Quick Preview</label>
                 <div className="border border-gray-200 rounded-lg p-4">
                   <div className="text-center space-y-3">
-                    <div className="flex justify-center space-x-4">
-                      {circularImages.slice(0, 2).map((person, index) => (
-                        <div key={index} className="text-center">
-                          <div 
-                            className="w-12 h-12 rounded-full border-2 mx-auto mb-1 flex items-center justify-center overflow-hidden"
-                            style={{ borderColor: tempColor }}
-                          >
-                            {person.image ? (
-                              <img 
-                                src={person.image} 
-                                alt={person.name}
-                                className="w-full h-full object-cover"
-                              />
-                            ) : (
-                              <span className="text-gray-400 text-sm">👤</span>
-                            )}
-                          </div>
-                          <p className="text-xs font-medium text-gray-900 truncate max-w-[80px]">
-                            {person.name || 'Name'}
-                          </p>
-                          <p className="text-xs text-gray-500 truncate max-w-[80px]">
-                            {person.role}
-                          </p>
-                        </div>
-                      ))}
+                    {/* College Name Preview */}
+                    <div className="mb-4 pb-4 border-b border-gray-100">
+                      <p className="text-xs text-gray-500 mb-2">College Name Preview:</p>
+                      <h4 
+                        className="text-lg font-bold truncate"
+                        style={{ color: tempColor }}
+                        title={tempCollegeName}
+                      >
+                        {tempCollegeName || "Your College Name"}
+                      </h4>
                     </div>
-                    <p className="text-xs text-gray-500">
-                      Leadership team preview
-                    </p>
+                    
+                    {/* Leadership Team Preview */}
+                    <div>
+                      <div className="flex justify-center space-x-4">
+                        {circularImages.slice(0, 2).map((person, index) => (
+                          <div key={index} className="text-center">
+                            <div 
+                              className="w-12 h-12 rounded-full border-2 mx-auto mb-1 flex items-center justify-center overflow-hidden"
+                              style={{ borderColor: tempColor }}
+                            >
+                              {person.image ? (
+                                <img 
+                                  src={person.image} 
+                                  alt={person.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <span className="text-gray-400 text-sm">👤</span>
+                              )}
+                            </div>
+                            <p className="text-xs font-medium text-gray-900 truncate max-w-[80px]">
+                              {person.name || 'Name'}
+                            </p>
+                            <p className="text-xs text-gray-500 truncate max-w-[80px]">
+                              {person.role}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-xs text-gray-500 mt-3">
+                        Leadership team preview
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
