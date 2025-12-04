@@ -67,13 +67,13 @@ const Footer = ({
 
           <div>
             <h3 className="font-semibold text-lg mb-4" style={{ color: themeColor }}>
-              Demo Features
+            Mock Tests
             </h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>✓ Custom Logo Upload</li>
-              <li>✓ Theme Color Change</li>
-              <li>✓ Background Modes</li>
-              <li>✓ Real-time Preview</li>
+            <ul className="space-y-2 text-gray-300">
+              <li>JEE Main Mock Tests</li>
+              <li>JEE Advanced Mock Tests</li>
+              <li>NEET Mock Tests</li>
+              
             </ul>
           </div>
         </div>
