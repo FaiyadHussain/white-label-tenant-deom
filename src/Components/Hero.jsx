@@ -226,7 +226,7 @@ const Hero = ({
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-6">
+        {/* <div className="flex flex-col sm:flex-row gap-4 mb-6">
           <button
             className="group relative px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-3"
             style={{ backgroundColor: themeColor }}
@@ -245,14 +245,14 @@ const Hero = ({
             <BookOpenCheck className="w-5 h-5" />
             <span>View Demo Tests</span>
           </button>
-        </div>
+        </div> */}
 
         {/* Trust Note */}
         <p
           className={`text-sm ${getMutedTextColorClasses()} flex items-center justify-center lg:justify-start gap-2`}
         >
           <CheckCircle className="w-4 h-4 text-green-600" />
-          No credit card required • 7-day full access • Instant activation
+          No credit card required • 1-Free Mock-Test • Instant activation
         </p>
       </div>
 
@@ -293,52 +293,59 @@ const Hero = ({
 
         {/* Leadership Team Section */}
         {hasCircularContent && (
-          <div className="text-center">
-            <h3 className={`text-xl font-bold mb-4 ${getTextColorClasses()}`}>
-              Our Leadership Team
-            </h3>
-            <p className={`text-sm mb-6 ${getMutedTextColorClasses()}`}>
-              Meet the experienced educators and mentors behind our success
-            </p>
+  <div className="text-center">
+    <h3 className={`text-xl font-bold mb-4 ${getTextColorClasses()}`}>
+      Our Leadership Team
+    </h3>
+    <p className={`text-sm mb-6 ${getMutedTextColorClasses()}`}>
+      Meet the experienced educators and mentors behind our success
+    </p>
 
-            <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
-              {circularImages.map((person, index) => (
-                <div key={person.id || index} className="text-center">
-                  <div
-                    className={`w-16 h-16 mx-auto rounded-full mb-2 flex items-center justify-center overflow-hidden border-2`}
-                    style={{ borderColor: themeColor }}
-                  >
-                    {person.image ? (
-                      <img
-                        src={person.image}
-                        alt={person.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className={`w-full h-full ${bgColor === 'dark' ? 'bg-gray-800' : 'bg-gray-100'} flex items-center justify-center`}>
-                        <span className="text-gray-400 text-lg">👤</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <p className={`text-xs font-semibold ${getTextColorClasses()}`}>
-                      {person.name || person.role}
-                    </p>
-                    {person.name && person.role && (
-                      <p className={`text-xs ${getMutedTextColorClasses()}`}>{person.role}</p>
-                    )}
-                    {person.department && (
-                      <p className={`text-xs ${getMutedTextColorClasses()}`}>
-                        {person.department}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+    <div className="flex justify-center items-center gap-16 mx-auto">
+  {circularImages.map((person, index) => (
+    <div
+      key={person.id || index}
+      className="flex flex-col items-center text-center"
+    >
+      <div
+        className={`w-20 h-20 rounded-full mb-2 flex items-center justify-center overflow-hidden border-2`}
+        style={{ borderColor: themeColor }}
+      >
+        {person.image ? (
+          <img
+            src={person.image}
+            alt={person.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div
+            className={`w-full h-full ${
+              bgColor === "dark" ? "bg-gray-800" : "bg-gray-100"
+            } flex items-center justify-center`}
+          >
+            <span className="text-gray-400 text-lg">👤</span>
           </div>
         )}
+      </div>
+
+      <p className={`text-sm font-semibold ${getTextColorClasses()}`}>
+        {person.name || person.role}
+      </p>
+
+      {person.role && (
+        <p className={`text-xs ${getMutedTextColorClasses()}`}>
+          {person.role}
+        </p>
+      )}
+    </div>
+  ))}
+</div>
+
+
+
+  </div>
+)}
+
 
         {/* Upload Instruction - Only show if no content */}
         {!hasCircularContent && (
@@ -413,8 +420,7 @@ const StudentParentStrip = ({
             For JEE & NEET Aspirants
           </h3>
           <p className={`text-sm mb-4 ${getMutedTextColorClasses()}`}>
-            You get serious mock tests, smart analytics, and clear next steps instead of random
-            question solving and guesswork.
+          You get organized mock tests, smart insights, and clear direction — not just random questions or confusion.
           </p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
@@ -501,9 +507,9 @@ const ExamFeatures = ({
     },
     {
       Icon: TrendingUp,
-      title: 'Adaptive Learning Path',
+      title: 'Learning Path Made Just for You',
       description:
-        'Personalized study plans that adapt to your performance, focusing on areas that need maximum improvement.',
+        'A smart system that reshapes your study route as you learn, giving extra attention to the topics that slow you down.',
     },
     {
       Icon: BarChart3,
@@ -819,14 +825,7 @@ const FinalCTASection = ({
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <button
-            className="group relative px-10 py-5 rounded-2xl text-white font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-3"
-            style={{ backgroundColor: themeColor }}
-          >
-            <Sparkles className="w-5 h-5" />
-            <span>Start 1 Free Mock-Test</span>
-            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-          </button>
+         
 
           <button
             className={`px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 border-2 ${bgColor === 'dark' ? 'border-gray-600 hover:border-gray-500' : 'border-gray-300 hover:border-gray-400'} flex items-center justify-center gap-3 bg-transparent`}
@@ -839,22 +838,6 @@ const FinalCTASection = ({
           </button>
         </div>
 
-        <div
-          className={`text-sm ${getMutedTextColorClasses()} flex items-center justify-center gap-6 flex-wrap`}
-        >
-          <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600" />
-            <span>No credit card required</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600" />
-            <span>Full access to all features</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-green-600" />
-            <span>Cancel anytime</span>
-          </div>
-        </div>
       </div>
     </section>
   );

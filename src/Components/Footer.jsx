@@ -79,15 +79,29 @@ const Footer = ({
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 {logoUrl ? 'Your College Name' : 'JEE & NEET Prep'}. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-sm mt-2">
-            Current mode: <span style={{ color: themeColor }}>
-              {bgColor === 'dark' ? 'Dark' : bgColor === 'gray' ? 'Gray' : 'Light'}
-            </span>
-          </p>
-        </div>
+  <p className="text-gray-400">
+    © 2025 . All rights reserved.
+  </p>
+
+  <div className="flex items-center justify-center gap-3 mt-3">
+  
+  <p className="text-sm font-medium bg-gradient-to-r from-gray-200 via-white to-gray-300 bg-clip-text text-transparent">
+    Powered by 
+    <span className="font-semibold bg-gradient-to-r from-blue-800 via-blue-800 to-blue-800 bg-clip-text text-transparent ml-1">
+    Brihathi Technology Services
+    </span>
+  </p>
+
+  <img
+    src="/brihathi-logo.png"
+    alt="Brihathi Logo"
+    className="w-10 h-10 object-contain drop-shadow-[0_0_6px_rgba(0,150,255,0.7)] brightness-110"
+  />
+</div>
+
+</div>
+
+
       </div>
     </footer>
   );
